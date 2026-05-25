@@ -1,0 +1,22 @@
+# Project specific files
+bin/
+release/
+testing/
+programs_paths.toml
+commands/install_programs/micromamba/LICENSE
+commands/install_programs/micromamba/micromamba-linux-64
+commands/install_programs/micromamba/micromamba-osx-64
+
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Ruff
+.ruff_cache
+
+# Virtual environments
+.venv

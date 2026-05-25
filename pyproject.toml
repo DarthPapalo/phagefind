@@ -1,0 +1,34 @@
+[project]
+name = "PhageFind"
+version = "1.0.0"
+authors = [{name = "Pablo Vidal", email = "darthpapalo@gmail.com"}]
+description = "PhageFind is a bioinformatic tool for the identification of bacteriophage sequences in de novo assemblies from bacteria sequencing data."
+readme = "README.md"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
+keywords = ["bioinformatics", "bacteriophage", "bacteria", "analysis"]
+requires-python = ">=3.14"
+dependencies = [
+    "rich>=14.3.3",
+    "dacite>=1.9.2",
+    "matplotlib>=3.10.8",
+    "pandas>=3.0.0",
+    "plotly>=6.5.2",
+    "jinja2>=3.1.6",
+    "requests>=2.33.1",
+    "clapy",
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.5.1",
+    "ruff>=0.15.5",
+    "ty>=0.0.21",
+]
+
+[tool.uv.sources]
+clapy = { git = "https://github.com/DarthPapalo/clapy", rev = "9a03f6b67d54ad07862a3ef3b969adcb08dc49b9" }
+
+[project.urls]
+repository = "https://github.com/DarthPapalo/phagefind.git"
+issues = "https://github.com/DarthPapalo/phagefind/issues"

@@ -1,0 +1,104 @@
+# Default PhageFind configuration file
+
+[preprocessing]
+sub_dir = "preprocessing"
+
+# FastQ reads reprocessing method
+# Available options (Case sensitive): "fastp"
+method = "fastp"
+
+[preprocessing.filters]
+# Limit of unknown bases (N) for each read sequence
+n_base_limit = 5
+
+# 0 Means no requirement
+minimum_average_quality = 0 
+
+# Minimum quality value so that a base is considered qualified
+qualified_phred_quality = 15
+# Maximum percentage of bases that can be unqualified
+unqualified_max_percentage = 40 
+
+# Minimum read sequence length
+minimum_length = 75
+# Maximum read sequence length
+maximum_length = 350
+
+
+[assembly]
+sub_dir = "assembly"
+
+# Genome assembly method
+# Available options (Case sensitive): "SPAdes"
+method = "SPAdes"
+
+# File to be used as the assembly
+# Available options: "scaffolds", "contigs"
+use_file = "scaffolds"
+
+
+[identification]
+sub_dir = "identification"
+
+# Feature identification method
+# Available options (Case sensitive): "BLAST"
+method = "BLAST"
+
+[identification.filters]
+# Enables filtering low complexity sequence segments using the DUST program of Tatusov and Lipman
+# Filtering can eliminate statistically significant but biologically uninteresting reports from the blast output
+enable_dust = false
+# Minimum query coverage for a feature to be identified
+min_query_coverage_percentage = 5
+# Maximum evalue for an identification to be considered valid
+max_evalue = 1e-10
+
+
+[differences_analysis]
+sub_dir = "differences"
+
+[differences_analysis.options]
+# The distance an alignment extension will attempt to extend poor scoring regions before giving up
+break_length = 200
+# Sets the minimum length of a cluster of matches
+minimum_cluster = 65
+
+# The maximum gap between two adjacent matches in a cluster
+maximum_gap = 90
+# The minimum length of a single exact match
+minimum_match = 20
+
+
+[visualization]
+# If set to 'false' you will need an online connection to visualize
+# interactive graphs, but it will result in more lightweight files
+standalone_graphs = true
+
+# Color palette used during graph generation
+# Current palettes:
+# - custom: handmade palette
+# - okabeito: Colorblind friendly palette
+color_palette = "okabeito"
+
+
+# Currently WIP, not implemented
+[online_mode]
+# Online mode is used to make BLAST searches from the NCBI servers.
+#
+# This program tries to adhere to the NCBI web service interface usage guidelines,
+# but can't prevent users from abusing the system by, for example, running multiple
+# instances of the program that perform many requests to the servers at the same time.
+#
+# The user is responsible for any possible abuse made to the NCBI servers while using this tool.
+
+# Email is used if the NCBI service wants to contact you incase a problem with your request occurred
+email = ""
+
+
+[report]
+# 'dark' or 'light' theme for the report
+theme = "light"
+
+# Use the ENA or NCBI Nucleotide databases to provide access to the detected features nucleotide pages
+# Possible values (Case sensitive): "ENA", "NCBI"
+nucleotide_database = "NCBI"
