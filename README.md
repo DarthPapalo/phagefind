@@ -18,7 +18,6 @@ The python program also relies on the following dependencies defined in the `pyp
 dependencies = [
     "rich>=14.3.3",
     "dacite>=1.9.2",
-    "matplotlib>=3.10.8",
     "pandas>=3.0.0",
     "plotly>=6.5.2",
     "jinja2>=3.1.6",
