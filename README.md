@@ -26,7 +26,7 @@ dependencies = [
 ]
 ```
 
-*Clapy* is a python CLI argument parsing library developed by Pablo Vidal with this project in mind, it can be found in [GitHub](https://github.com/DarthPapalo/clapy) and it is specified in the `pyproject.toml` file:
+*Clapy* is a python CLI argument parsing library developed by Pablo Vidal with this project in mind, it can be found in [GitHub](https://github.com/DarthPapalo/clapy) and is specified in the `pyproject.toml` file:
 ```toml
 [tool.uv.sources]
 clapy = { git = "https://github.com/DarthPapalo/clapy", rev = "9a03f6b67d54ad07862a3ef3b969adcb08dc49b9" }
@@ -39,9 +39,9 @@ To install the rest of the dependencies run:
 ```
 python phagefind.py install-programs --dir <Installation directory> --paths-file <Paths file>
 ```
-Where ***`<Installation directory>`*** is the directory where the required programs will be installed.
+Where **`<Installation directory>`** is the directory where the required programs will be installed.
 
-Where ***`<Paths file>`*** is the file that where the programs paths will be stored, required later by the analysis pipeline. The **default path** is the same one used by the `analysis` command, leave it empty so you don't have to configure it later.
+Where **`<Paths file>`** is the file where the programs paths will be stored, required later by the analysis pipeline. The *default path* is the same one used by the `analyze` command, don't specify `--paths-file` if you don't want to configure it later.
 
 ***Alternatively***, if you already have the necessary programs, you can create your own file with the required programs paths to be used by the pipeline, it should follow this TOML structure (Make sure you use absolute paths):
 
@@ -64,7 +64,7 @@ show_aligns = "<show-aligns path>"
 dnadiff = "<dnadiff path>"
 ```
 
-You will have to specify this file using the `--programs-paths` argument in the other commands, or store it in the programs directory with `programs_paths.toml` as the name.
+You will have to specify this file using the `--programs-paths` argument in the other commands, or store it in the same directory as the `phagefind.py` file with `programs_paths.toml` as the name.
 
 ### 2.1 ***OPTIONAL*** - Download bacteriophage data from the PhageScope database
 The program also has a command to download bacteriophage data from the PhageScope database, simply run:
@@ -72,9 +72,9 @@ The program also has a command to download bacteriophage data from the PhageScop
 python phagefind.py download-data --sources <DB names> --data-types <Data types> --output <Output directory>
 ```
 
-Where ***`<DB names>`*** is a space-separated list of databases from the available ones (*Case sensitive*): `RefSeq, Genbank, DDBJ, EMBL, PhagesDB, GPD, GVD, MGV, TemPhD, CHVD, IGVD, IMG_VR, GOV2, STV`
+Where **`<DB names>`** is a space-separated list of databases from the available ones (*Case sensitive*): `RefSeq, Genbank, DDBJ, EMBL, PhagesDB, GPD, GVD, MGV, TemPhD, CHVD, IGVD, IMG_VR, GOV2, STV`
 
-Where ***`<Data types>`*** is a space-separated list of the desired types of data to download from the available ones: `Genome, Gene, Metadata` (Gene requires Genome)
+Where **`<Data types>`** is a space-separated list of the desired types of data to download from the available ones: `Genome, Gene, Metadata` (Gene requires Genome)
 
 ***Optionally*** use `--keep-individual` to keep the individual files from each source (merged and deleted afterwards by default), or `--no-verify` to disable SSL certificate verification before downloading.
 
@@ -108,12 +108,12 @@ To generate graphs for a set of feature IDs run:
 python phagefind.py visualization <Feature IDs> --features-dir <Features dir> --output <Output directory>
 ```
 
-Where ***`<Feature IDs>`*** is a space-separated list of the different detected bacteriophages IDs/ACCs (e.g. JQ182730.1). You can also use **"ALL"** to generate visualizations for all the features present in the specified directory.
+Where **`<Feature IDs>`** is a space-separated list of the different detected bacteriophages IDs/ACCs (e.g. JQ182730.1). You can also use **"ALL"** to generate visualizations for all the features present in the specified directory.
 
-Where ***`<Features dir>`*** is the **differences** directory created during the analysis pipeline
+Where **`<Features dir>`** is the *differences* directory created during the analysis pipeline
 
 ### ***OPTIONAL*** - Using a custom configuration
-By default, the program looks for a `config.toml` file in the same directory as the `phagefind.py` file to load it instead of the default one. You can specify a custom configuration file using the `--config` argument.
+By default, the program looks for a `config.toml` file in the same directory as the `phagefind.py` file to load it instead of the default one. You can also specify a custom configuration file using the `--config` argument.
 
 See the default configuration in the `default_config.toml` file, it also contains comments explaining each parameter.
 
@@ -126,7 +126,7 @@ uv run phagefind.py <Additional arguments, ...>
 ```
 No need to manage any python dependencies, UV does this for you.
 
-You can also execute `phagefind.py` by simply invoking the file like `./phagefind.py`. It will look for the defined python3 executable in your current enviroment using the provided shebang `#!/usr/bin/env python3` (Make sure it has execution permissions - `chmod +x`).
+You can also execute `phagefind.py` by simply invoking the file like `./phagefind.py`. It will look for the defined python3 executable in your current enviroment using the provided shebang `#!/usr/bin/env python3` (Make sure it has execution permissions: `chmod +x phagefind.py`).
 
 ## Examples
 ### Analysis report
